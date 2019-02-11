@@ -2,15 +2,6 @@
 
 
 
-@section('categories')
-    @if($categories)
-        @foreach($categories as $category)
-            <li><a href="#">{{$category->name}}</a>
-            </li>
-        @endforeach
-    @endif
-@endsection
-
 
 @section('content')
     <!-- Blog Post -->

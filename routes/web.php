@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/','HomeController@index')->name('home');
-
+Route::get('/','HomeController@index');
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/users','AdminUsersController');
@@ -29,5 +29,5 @@ Route::delete('/delete/media','AdminPhotosController@destroy');
 Route::get('/post/{id}','PostController')->name('post.index');
 
 Route::get('/admin','AdminController@index');
-Auth::routes();
+
 
