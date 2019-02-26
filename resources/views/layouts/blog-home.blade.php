@@ -2,9 +2,7 @@
 <html lang="en">
 
 @include('includes.homePageHeader')
-@section('title')
-    <title>Blog Home</title>
-@endsection
+
 <body>
 
 <!-- Navigation -->

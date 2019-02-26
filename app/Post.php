@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-
+use App\Photo;
+use Illuminate\Support\Facades\Auth;
 class Post extends Model
 {
     //
@@ -48,5 +49,12 @@ class Post extends Model
 
     public function placeHolder(){
         return "http://placehold.it/400x400";
+    }
+    public static function newPost($request){
+        $user = Auth::user();
+        $input = $request->all();
+        $input = Photo::hasPhoto($input,$request);
+        $user->posts()->create($input);
+        $request->session()->flash('created_post', 'The post has been created');
     }
 }

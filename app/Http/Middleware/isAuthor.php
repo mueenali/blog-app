@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Middleware;
-use Illuminate\Support\Facades\Auth;
-use Closure;
 
-class CheckAdmin
+use Closure;
+use Illuminate\Support\Facades\Auth;
+
+class isAuthor
 {
     /**
      * Handle an incoming request.
@@ -16,7 +17,7 @@ class CheckAdmin
     public function handle($request, Closure $next)
     {
         if(Auth::check()){
-            if(Auth::user()->isUser('admin')){
+            if(Auth::user()->isUser('author')|| Auth::user()->isUser('admin')){
                 return $next($request);
             }
         }

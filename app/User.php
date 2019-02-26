@@ -51,9 +51,9 @@ class User extends Authenticatable
         $this->attributes['password'] = Hash::make($value);
     }
 
-    public function isAdmin()
+    public function isUser($role)
     {
-        if ($this->role->name == 'admin' && $this->is_active == 1) {
+        if ($this->role->name == $role && $this->is_active == 1) {
             return true;
         } else {
             return false;

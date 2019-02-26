@@ -1,7 +1,10 @@
 @extends('layouts.blog-home')
 
-@section('content')
+@section('title')
+    <title>Blog Home</title>
+@endsection
 
+@section('content')
 
     <div class="col-md-8">
     @if($posts)

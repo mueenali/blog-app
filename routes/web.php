@@ -27,7 +27,11 @@ Route::post('/comment','CommentController@store')->name('comment.store');
 
 Route::delete('/delete/media','AdminPhotosController@destroy');
 Route::get('/post/{id}','PostController')->name('post.index');
+Route::get('/addPost','AuthorPostController@create')->name('addPost.create');
+Route::post('/addPost','AuthorPostController@store');
+Route::get('/category/{category}','HomeController@category')->name('category.posts');
+Route::any('/post/search','HomeController@search');
+Route::get('/admin','AdminController@index')->name('admin.index');
 
-Route::get('/admin','AdminController@index');
 
 

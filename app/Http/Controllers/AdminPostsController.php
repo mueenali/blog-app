@@ -48,12 +48,7 @@ class AdminPostsController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $user = Auth::user();
-        $input = $request->all();
-        $input = Photo::hasPhoto($input,$request);
-        $user = Auth::user();
-        $user->posts()->create($input);
-        $request->session()->flash('created_post', 'The post has been created');
+        Post::newPost($request);
         return redirect('/posts');
     }
 
