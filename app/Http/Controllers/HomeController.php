@@ -21,14 +21,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(6);
+        $posts = Post::paginate(10);
         $categories = Category::all();
         return view('appFront.home',compact('posts','categories'));
     }
     public function category($slug){
         $category = Category::where('slug',$slug)->firstOrFail();
         $categories = Category::all();
-        $posts = Post::where('category_id',$category->id)->paginate(6);
+        $posts = Post::where('category_id',$category->id)->paginate(10);
         return view('appFront.home',compact('posts','categories'));
     }
     public function search(Request $request){
